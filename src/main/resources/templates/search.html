@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="mainContent">
+    <div class="row">
+        <div class="col-12">
+            <form th:action="@{'/search'}" method="get">
+                <div class="row">
+                    <div class="col-5">
+                        <input type="text" class="form-control " placeholder="Enter key" name="key" th:value="${param.key}">
+                    </div>
+                    <div class="col-5">
+                        <select class="form-select" name="order">
+                            <option value="asc">Sort by Name asc</option>
+                            <option value="desc">Sort by Name desc</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-success">SEARCH</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6" th:each="re : ${requests}">
+            <div class="card w-100 mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <span th:if="${re.handled==true}"></span>
+                        <span th:if="${re.handled==false}" style="color: #ff0600">*(Новая)</span>
+                        Заявка от <span th:text="${re.userName}"></span></h4>
+                    <h5 class="text-muted">Kурса : <strong class="card-text"
+                                                           th:text="${re.courses.getCourseName()}"></strong></h5>
+                    <p>Коментарий :<span th:text="${re.commentary}"></span></p>
+                    <a th:href="@{'details/' + ${re.id} + '.html'}" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

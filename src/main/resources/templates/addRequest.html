@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div layout:fragment="mainContent">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <form th:action="@{'/addrequest'}" method="post">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>ФИО : </label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" placeholder="ФИО" name="userName">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>КУРС : </label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <select name="courses.id" class="form-select">
+                            <option th:each="cors : ${courses}" th:text="${cors.courseName}"
+                                    th:value="${cors.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>ТЕЛЕФОН : </label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="number" class="form-control" placeholder="+7(7__)_______" name="phone">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label>КОММЕНТАРИИ : </label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <textarea type="text" class="form-control" placeholder="Комментарии"
+                                  name="commentary"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <button class="btn btn-success">Добавить заявку</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</html>
