@@ -6,13 +6,17 @@
         <div class="col-6" th:each="re : ${requests}">
             <div class="card w-100 mb-3">
                 <div class="card-body">
-                    <h4 class="card-title">
-                        <span th:if="${re.handled==true}"></span>
-                        <span th:if="${re.handled==false}" style="color: #ff0600">*(Новая)</span>
-                        Заявка от <span th:text="${re.userName}"></span></h4>
-                    <h5 class="text-muted">Kурса : <strong class="card-text" th:text="${re.courses.getCourseName()}"></strong></h5>
-                    <p>Коментарий :<span th:text="${re.commentary}"></span></p>
-                    <a th:href="@{'details/' + ${re.id} + '.html'}" class="btn btn-primary">Go somewhere</a>
+                    <div class="d-flex">
+                        <p th:if="${re.handled==true}"></p>
+                        <p th:if="${re.handled==false}" style="color: #ff0600">*(Новая)</p>
+                        <h4 class="card-title" th:text="#{request.requestFrom} + ' ' + ${re.userName}">
+                        </h4>
+                    </div>
+                    <h5 class="text-muted" th:text="#{request.course} + ': ' + ${re.courses.getCourseName()}">
+                    </h5>
+                    <p th:text="#{request.comment} + ': ' + ${re.commentary}"></p>
+                    <a th:href="@{'details/' + ${re.id} + '.html'}" class="btn btn-primary"
+                       th:text="#{button.details}"></a>
                 </div>
             </div>
         </div>

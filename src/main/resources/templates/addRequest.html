@@ -7,7 +7,7 @@
             <form th:action="@{'/addrequest'}" method="post">
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>ФИО : </label>
+                        <label th:text="#{label.fullName}"> : </label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>КУРС : </label>
+                        <label th:text="#{label.course}"> : </label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -30,7 +30,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>ТЕЛЕФОН : </label>
+                        <label th:text="#{label.phone}"> : </label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>КОММЕНТАРИИ : </label>
+                        <label th:text="#{label.comment}"> : </label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <button class="btn btn-success">Добавить заявку</button>
+                        <button class="btn btn-success" th:text="#{menu.addRequest}"></button>
                     </div>
                 </div>
             </form>

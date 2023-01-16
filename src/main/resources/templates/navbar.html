@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2e6c50">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{'/'}">Query manager</a>
+        <a class="navbar-brand" th:href="@{'/'}" th:text="#{menu.queryManager}"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -9,22 +9,33 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" th:href="@{'/'}">На главную страницу</a>
+                    <a class="nav-link" aria-current="page" th:href="@{'/'}" th:text="#{menu.homePage}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{'/addrequest'}">Добавить заявку</a>
+                    <a class="nav-link" th:href="@{'/addrequest'}" th:text="#{menu.addRequest}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{'/true'}">Обработанные заявки</a>
+                    <a class="nav-link" th:href="@{'/true'}" th:text="#{menu.isHandled}"></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{'/false'}">Необработанные заявки</a>
+                    <a class="nav-link" th:href="@{'/false'}" th:text="#{menu.isNotHandled}"></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
                 </li>
             </ul>
             <form class="d-flex" role="search" th:action="@{'/search'}" method="get">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="key"
-                       th:value="${param.key}">
-                <button class="btn btn-outline-light" type="submit">Search</button>
+                <input class="form-control me-2" type="search" aria-label="Search" name="key"
+                       th:value="${param.key}" th:placeholder="#{search.search}">
+                <button class="btn btn-outline-light" type="submit" th:text="#{search.search}"></button>
             </form>
         </div>
     </div>

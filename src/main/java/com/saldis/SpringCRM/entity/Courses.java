@@ -9,7 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Courses {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
